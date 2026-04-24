@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priyanshu Kumar Singh — Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #f7f8fc;
+      --surface: #ffffff;
+      --surface2: #eef1f8;
+      --border: #d8dce8;
+      --accent: #5b7fc7;
+      --accent2: #8b6fc0;
+      --green: #3a9e8f;
+      --text: #2c3040;
+      --muted: #6b7394;
+      --serif: 'DM Serif Display', serif;
+      --mono: 'DM Mono', monospace;
+      --sans: 'Manrope', sans-serif;
+      --shadow: 0 1px 3px rgba(44, 48, 64, .06), 0 4px 16px rgba(44, 48, 64, .04);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp .7s cubic-bezier(.22, 1, .36, 1) both
+    }
+
+    .fade-in {
+      animation: fadeIn .6s ease both
+    }
+
+    section,
+    #hero {
+      animation: fadeUp .7s cubic-bezier(.22, 1, .36, 1) both
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 248, 252, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: .05em;
+      font-weight: 500
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color .25s
+    }
+
+    .nav-links a:hover {
+      color: var(--accent)
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 0;
+      max-width: 860px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem
+    }
+
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .75rem
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 2rem
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      max-width: 860px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--green);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .4
+      }
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: .5rem
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent2)
+    }
+
+    .hero-role {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 500px;
+      line-height: 1.8
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .65rem 1.4rem;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .25s;
+      text-decoration: none
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(91, 127, 199, .25)
+    }
+
+    .btn-primary:hover {
+      background: #4a6db8;
+      box-shadow: 0 4px 14px rgba(91, 127, 199, .35);
+      text-decoration: none;
+      transform: translateY(-1px)
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text)
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      transform: translateY(-1px)
+    }
+
+    .hero-scroll {
+      margin-top: 4rem;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: .75rem
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--border)
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem
+    }
+
+    .about-text {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px
+    }
+
+    .about-text p {
+      margin-bottom: 1rem
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(44, 48, 64, .08)
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: .2rem
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .skill-group:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(44, 48, 64, .08)
+    }
+
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--green);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .75rem
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem
+    }
+
+    .tag {
+      display: inline-block;
+      padding: .25rem .65rem;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--surface2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      transition: all .2s
+    }
+
+    .tag:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent)
+    }
+
+    /* PROJECTS */
+    .project-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow)
+    }
+
+    .project-card {
+      background: var(--surface);
+      padding: 1.5rem;
+      transition: background .25s
+    }
+
+    .project-card:hover {
+      background: var(--surface2)
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: .5rem
+    }
+
+    .project-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text)
+    }
+
+    .project-type {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .2rem .5rem;
+      border: 1px solid rgba(91, 127, 199, .25);
+      border-radius: 5px;
+      white-space: nowrap;
+      background: rgba(91, 127, 199, .06)
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: .75rem
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem
+    }
+
+    .stack-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--surface2);
+      padding: .15rem .45rem;
+      border-radius: 4px;
+      border: 1px solid var(--border)
+    }
+
+    /* EXPERIENCE */
+    .exp-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .exp-item:last-child {
+      border-bottom: none
+    }
+
+    .exp-left {
+      flex-shrink: 0;
+      width: 110px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    .exp-right {}
+
+    .exp-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .25rem
+    }
+
+    .exp-org {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: .5rem
+    }
+
+    .exp-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7
+    }
+
+    .exp-desc li {
+      margin-bottom: .25rem;
+      list-style: none;
+      padding-left: 1rem;
+      position: relative
+    }
+
+    .exp-desc li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--border)
+    }
+
+    /* ACHIEVEMENTS */
+    .ach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem
+    }
+
+    .ach-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .ach-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(44, 48, 64, .08)
+    }
+
+    .ach-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--accent2))
+    }
+
+    .ach-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--green);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .4rem
+    }
+
+    .ach-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .3rem
+    }
+
+    .ach-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    /* CERTIFICATIONS */
+    .cert-list {
+      display: grid;
+      gap: .75rem
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .cert-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(44, 48, 64, .08)
+    }
+
+    .cert-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      flex-shrink: 0
+    }
+
+    .cert-icon.oracle {
+      background: rgba(220, 80, 70, .08);
+      color: #c25450;
+      border: 1px solid rgba(220, 80, 70, .15)
+    }
+
+    .cert-icon.aws {
+      background: rgba(200, 155, 30, .08);
+      color: #b08a20;
+      border: 1px solid rgba(200, 155, 30, .15)
+    }
+
+    .cert-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text)
+    }
+
+    .cert-meta {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .cert-validity {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--green);
+      margin-left: auto;
+      white-space: nowrap
+    }
+
+    /* CONTACT */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem
+    }
+
+    .contact-chip {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .6rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      transition: all .25s
+    }
+
+    .contact-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(91, 127, 199, .12)
+    }
+
+    .chip-icon {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 860px;
+      margin: 0 auto
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:640px) {
+      .about-grid {
+        grid-template-columns: 1fr
+      }
+
+      .ach-grid {
+        grid-template-columns: 1fr
+      }
+
+      .exp-item {
+        flex-direction: column;
+        gap: .5rem
+      }
+
+      .exp-left {
+        width: auto
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <span class="nav-logo">PKS.dev</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-tag"><span class="dot"></span> Available for opportunities</div>
+    <h1 class="hero-name">Priyanshu<br><em>Kumar Singh</em></h1>
+    <p class="hero-role">B.Tech student in Computer Science &amp; Software Engineering at SRMIST · Building full-stack
+      platforms, AI tools, and real-time systems · CGPA 9.39</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+    </div>
+    <div class="hero-scroll"><span class="scroll-line"></span>Scroll to explore</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-tag">About</div>
+    <h2>A developer who builds for impact</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a third-year Computer Science (Software Engineering) student at SRMIST, Kattankulathur — passionate about
+          building software that solves real problems.</p>
+        <p>From EdTech platforms for rural students to real-time collaborative tools, I enjoy working across the stack —
+          designing schemas, building UIs, and integrating AI where it matters.</p>
+        <p>Currently a Technical Member at the SRMIST ACM Student Chapter, mentoring peers and organizing hackathons.
+        </p>
+      </div>
+      <div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-num">9.39</div>
+            <div class="stat-label">CGPA at SRMIST</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Projects shipped</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">2027</div>
+            <div class="stat-label">Expected graduation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-tag">Skills</div>
+    <h2>Tools &amp; technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">C++</span><span class="tag">C</span><span class="tag">JavaScript</span><span
+            class="tag">HTML</span><span class="tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Frameworks &amp; Libraries</div>
+        <div class="skill-tags">
+          <span class="tag">React</span><span class="tag">Socket.IO</span><span class="tag">Machine Learning</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Databases &amp; Tools</div>
+        <div class="skill-tags">
+          <span class="tag">MySQL</span><span class="tag">VS Code</span><span class="tag">MS Planner</span><span
+            class="tag">PowerPoint</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Areas of Interest</div>
+        <div class="skill-tags">
+          <span class="tag">DSA</span><span class="tag">DBMS</span><span class="tag">OOP</span><span
+            class="tag">AI/ML</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-tag">Projects</div>
+    <h2>Things I've built</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Grameen Pathsala</span>
+          <span class="project-type">AI · EdTech</span>
+        </div>
+        <p class="project-desc">AI-enabled rural education platform for low-bandwidth environments. Built
+          video-optimized delivery, AI-based content indexing, and a text-to-speech system improving accessibility for
+          children in resource-constrained areas.</p>
+        <div class="project-stack">
+          <span class="stack-tag">LLaMA</span><span class="stack-tag">OpenCV</span><span
+            class="stack-tag">FFmpeg</span><span class="stack-tag">TTS APIs</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">TaskFlow</span>
+          <span class="project-type">Real-time · Collaboration</span>
+        </div>
+        <p class="project-desc">Real-time task management platform enabling seamless collaboration with synchronized
+          task updates across users. Implemented Socket.IO for low-latency data exchange and consistent state management
+          between clients.</p>
+        <div class="project-stack">
+          <span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span
+            class="stack-tag">JavaScript</span><span class="stack-tag">Socket.IO</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Shelf Space</span>
+          <span class="project-type">Web · EdTech</span>
+        </div>
+        <p class="project-desc">Responsive academic resource platform enabling structured access to semester-wise study
+          material. Designed a backend database schema with MySQL to improve data organization and retrieval efficiency.
+        </p>
+        <div class="project-stack">
+          <span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span
+            class="stack-tag">JavaScript</span><span class="stack-tag">MySQL</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">VitaHealth</span>
+          <span class="project-type">MedTech · AI</span>
+        </div>
+        <p class="project-desc">Med-tech platform built at HackGrid 1.0 leveraging LLMs for diagnostics and healthcare
+          recommendations. Features real-time symptom analysis and a voice-based mental health chatbot. Won 2nd
+          Runner-up.</p>
+        <div class="project-stack">
+          <span class="stack-tag">LLMs</span><span class="stack-tag">Voice AI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-tag">Experience &amp; Education</div>
+    <h2>Where I've been</h2>
+    <div class="exp-item">
+      <div class="exp-left">Jan 2025<br>— Dec 2025</div>
+      <div class="exp-right">
+        <div class="exp-title">Technical Member</div>
+        <div class="exp-org">SRMIST ACM Student Chapter</div>
+        <ul class="exp-desc">
+          <li>Collaborated with cross-functional teams to design and develop interactive technical projects</li>
+          <li>Mentored junior students on project architecture, debugging, and best coding practices</li>
+          <li>Assisted in organizing hackathons and technical events</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-left">2024 — 2027</div>
+      <div class="exp-right">
+        <div class="exp-title">B.Tech — Computer Science &amp; Software Engineering</div>
+        <div class="exp-org">SRM Institute of Science and Technology, Kattankulathur</div>
+        <div class="exp-desc" style="padding-left:0">CGPA: 9.39 / 10 &nbsp;·&nbsp; Defence Scholarship Recipient</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-left">2023</div>
+      <div class="exp-right">
+        <div class="exp-title">Class XII (CBSE)</div>
+        <div class="exp-org">Sunbeam Academy, Varanasi</div>
+        <div class="exp-desc" style="padding-left:0">Percentage: 71.2%</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-left">2021</div>
+      <div class="exp-right">
+        <div class="exp-title">Class X (CBSE)</div>
+        <div class="exp-org">Army Public School, Secunderabad</div>
+        <div class="exp-desc" style="padding-left:0">Percentage: 78.2%</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ACHIEVEMENTS & CERTS -->
+  <section id="achievements">
+    <div class="section-tag">Achievements &amp; Certifications</div>
+    <h2>Recognition &amp; credentials</h2>
+    <div class="ach-grid" style="margin-bottom:2rem">
+      <div class="ach-card">
+        <div class="ach-badge">🏆 HackGrid 1.0 · Apr 2025</div>
+        <div class="ach-title">2nd Runner Up</div>
+        <div class="ach-desc">Won for VitaHealth — a med-tech platform with LLM diagnostics and voice-based mental
+          health chatbot. SRMIST ACM SIGAI.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-badge">🤝 SIH 2025 (Internal) · Sept 2025</div>
+        <div class="ach-title">Smart India Hackathon Participant</div>
+        <div class="ach-desc">Participated in the internal edition at SRMIST representing Grameen Pathsala, an AI rural
+          EdTech solution.</div>
+      </div>
+    </div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-icon oracle">OCI</div>
+        <div>
+          <div class="cert-name">Oracle Certified AI Foundations Associate</div>
+          <div class="cert-meta">Oracle · #102438933OCI25AICFA</div>
+        </div>
+        <div class="cert-validity">Aug 2025 – 2027</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon aws">AWS</div>
+        <div>
+          <div class="cert-name">AWS Certified Cloud Practitioner</div>
+          <div class="cert-meta">Amazon Web Services · #559fb672...</div>
+        </div>
+        <div class="cert-validity">Apr 2026 – 2029</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon aws">AWS</div>
+        <div>
+          <div class="cert-name">AWS Certified AI Practitioner</div>
+          <div class="cert-meta">Amazon Web Services · #f388412f...</div>
+        </div>
+        <div class="cert-validity">Apr 2026 – 2029</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-tag">Contact</div>
+    <h2>Let's connect</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:1.5rem;max-width:480px">Open to internship opportunities,
+      collaborations, and interesting projects. Feel free to reach out!</p>
+    <div class="contact-row">
+      <a class="contact-chip" href="mailto:priyanshusingh3473@gmail.com">
+        <span class="chip-icon">@</span> priyanshusingh3473@gmail.com
+      </a>
+      <a class="contact-chip" href="tel:+917702674901">
+        <span class="chip-icon">#</span> +91 7702674901
+      </a>
+      <a class="contact-chip" href="https://www.linkedin.com/in/priyanshu-kumar-singh-975492289/" target="_blank">
+        <span class="chip-icon">in</span> LinkedIn
+      </a>
+      <a class="contact-chip" href="https://github.com/Priyanshu-88" target="_blank">
+        <span class="chip-icon">gh</span> GitHub
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    built by Priyanshu Kumar Singh · 2025 · SRMIST
+  </footer>
+
+</body>
+
+</html>
